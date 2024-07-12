@@ -1,0 +1,3 @@
+gunicorn==22.0.0
+Flask==2.2.5
+Flask-RESTful==0.3.10
