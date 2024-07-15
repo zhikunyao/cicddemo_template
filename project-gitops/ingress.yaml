@@ -10,7 +10,7 @@ metadata:
     kubernetes.io/ingress.class: alb
 spec:
   rules:
-  - host: demo2.cicdmeta.zilliz.cc
+  - host: demo3.cicdmeta.zilliz.cc
     http:
       paths:
       - path: /
