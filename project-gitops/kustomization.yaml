@@ -5,11 +5,11 @@ resources:
 - service.yaml
 - ingress.yaml
 commonLabels:
-  app: cicdmeta-demo1
+  app: cicdmeta-demo4
 images:
 - name: cicdmeta-api
-  newName: harbor-us-vdc.zilliz.cc/cicdmeta/cicdmeta-demo1
+  newName: harbor-us-vdc.zilliz.cc/cicdmeta/cicdmeta-demo4
   newTag: main-20240715-7b9ba0d
-- name: cicdmeta-demo1
-  newName: harbor-us-vdc.zilliz.cc/cicdmeta/cicdmeta-demo1
+- name: cicdmeta-demo4
+  newName: harbor-us-vdc.zilliz.cc/cicdmeta/cicdmeta-demo4
   newTag: main-20240715-7cc2d96
