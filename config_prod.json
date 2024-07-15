@@ -1,3 +1,5 @@
 {
-  "version": "v0.0.1-prod"
+  "version": "v0.0.1-prod",
+  "service": "demo3",
+  "env": "base"
 }
