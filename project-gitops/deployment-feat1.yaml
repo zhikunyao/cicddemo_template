@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicdmeta-demo3-feat1
+  namespace: cicdmeta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicdmeta-demo3
+  template:
+    metadata:
+      labels:
+        app: cicdmeta-demo3
+    spec:
+      containers:
+      - name: cicdmeta-demo3-container-feat1
+        image: cicdmeta-demo3-feat1
+        resources:
+          requests:
+            cpu: "1000m"
+            memory: "2Gi"
+          limits:
+            cpu: "2000m"
+            memory: "4Gi"
+        ports:
+        - containerPort: 8000
+        env:
+        - name: CICDMETA_ENV
+          value: "prod"
