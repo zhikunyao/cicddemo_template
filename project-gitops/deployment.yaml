@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cicdmeta-demo1
+  name: cicdmeta-demo1  #appfactory
   namespace: cicdmeta
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: cicdmeta-demo1
+      app: cicdmeta-demo1  #appfactory
   template:
     metadata:
       labels:
-        app: cicdmeta-demo1
+        app: cicdmeta-demo1  #appfactory
     spec:
       containers:
-      - name: cicdmeta-demo1-container
-        image: cicdmeta-demo1
+      - name: cicdmeta-demo1-container  #appfactory
+        image: cicdmeta-demo1  #appfactory
         resources:
           requests:
             cpu: "1000m"
