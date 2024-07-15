@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: cicdmeta-demo1-ingress
+  name: cicdmeta-demo2-ingress
   namespace: cicdmeta
   annotations:
     alb.ingress.kubernetes.io/backend-protocol: HTTP
@@ -10,13 +10,13 @@ metadata:
     kubernetes.io/ingress.class: alb
 spec:
   rules:
-  - host: demo1.cicdmeta.zilliz.cc
+  - host: demo2.cicdmeta.zilliz.cc
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: cicdmeta-demo1-service
+            name: cicdmeta-demo2-service
             port:
               number: 8000
