@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cicdmeta-demo1
+  name: cicdmeta-demo1  #appfactory
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/zhikunyao/cicddemo_template.git  # 替换为实际的 Git 仓库 URL
     path: project-gitops  # 仓库中包含 YAML 文件的路径
-    targetRevision: main  # 替换为要使用的分支名称
+    targetRevision: main  #appfactory 替换为要使用的分支名称
   destination:
     server: https://kubernetes.default.svc
     namespace: cicdmeta
