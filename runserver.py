@@ -1,6 +1,5 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
-from flask_sqlalchemy import SQLAlchemy
 
 # 读取当前目录下的文件以加载敏感配置
 import os
