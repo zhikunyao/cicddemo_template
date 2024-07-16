@@ -5,6 +5,7 @@ from flask_restful import Resource, Api
 import os
 import sys
 import json
+import requests
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # 获取环境变量设置配置文件
@@ -28,7 +29,20 @@ api = Api(app)
 class ConfigResource(Resource):
     def get(self):
         values = VERSION
-        return {"version": values}
+        ret = {"version": values}
+        url = 'http://demo4.cicdmeta.zilliz.cc/config'
+        response = requests.get(url)
+        route_status = f"{response.status_code}"
+        if response.status_code == 200:
+            data = response.json()
+            ret['route_json'] = data
+            ret['route_text'] = response.text
+            ret['route_headers'] = str(response.headers)
+        else:
+            pass
+        ret['route_url'] = url
+        ret['route_status'] = route_status
+        return ret
 
     def post(self):
         key = request.json['key']
