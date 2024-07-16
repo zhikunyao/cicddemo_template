@@ -10,6 +10,8 @@ metadata:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/conditions.cicdmeta-demo3-service-feat1: >
       [{"field":"http-header","httpHeaderConfig":{"httpHeaderName": "X-ENV", "values":["feat1"]}}]
+    alb.ingress.kubernetes.io/conditions.cicdmeta-demo3-service: >
+      [{"field":"http-header","httpHeaderConfig":{"httpHeaderName": "X-ENV", "values":["base"]}}]
 spec:
   rules:
   - host: demo3.cicdmeta.zilliz.cc
@@ -19,16 +21,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: cicdmeta-demo3-service
-            port:
-              number: 8000
-  - host: demo3.cicdmeta.zilliz.cc
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: cicdmeta-demo3-service-feat1
+            name: use-annotation
             port:
               number: 8000
