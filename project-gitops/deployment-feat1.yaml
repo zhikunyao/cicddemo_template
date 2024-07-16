@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: cicdmeta-demo3
+        xenv: feat1
     spec:
       containers:
       - name: cicdmeta-demo3-container-feat1
