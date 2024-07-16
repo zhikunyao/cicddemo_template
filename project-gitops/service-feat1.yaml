@@ -10,3 +10,4 @@ spec:
     targetPort: 8000
   selector:
     app: cicdmeta-demo3
+    xenv: feat1
