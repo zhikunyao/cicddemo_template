@@ -21,6 +21,13 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: use-annotation
+            name: cicdmeta-demo3-service-feat1
+            port:
+              number: 8000
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: cicdmeta-demo3-service
             port:
               number: 8000
