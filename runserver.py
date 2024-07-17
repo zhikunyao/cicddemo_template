@@ -25,18 +25,29 @@ VERSION = config.get('version') or "no config"
 app = Flask(__name__)
 api = Api(app)
 
+def lane_http_header(request):
+    custom_header_kv = request.headers
+    ret = {}
+    for each_key in ['X-ENV','X-USER-ID']:
+        value = custom_header_kv.get(each_key)
+        if value:
+            ret[each_key] = value
+    return ret
+
 # Test资源
 class ConfigResource(Resource):
     def get(self):
         values = VERSION
         ret = {"version": values}
+        custom_header_dict = lane_http_header(request)
         url = 'http://demo4.cicdmeta.zilliz.cc/config'
-        response = requests.get(url)
+        response = requests.get(url, headers=custom_header_dict)
         route_status = f"{response.status_code}"
         if response.status_code == 200:
             data = response.json()
             ret['route_json'] = data
             ret['route_text'] = response.text
+            ret['route_my_custom_header'] = custom_header_dict
             ret['route_headers'] = str(response.headers)
         else:
             pass
