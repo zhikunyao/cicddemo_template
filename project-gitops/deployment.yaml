@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cicdmeta-demo2
+  name: cicdmeta-demo2-base
   namespace: cicdmeta
 spec:
   replicas: 2
