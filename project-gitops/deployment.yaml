@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: cicdmeta-demo4
+        version: base
     spec:
       containers:
       - name: cicdmeta-demo4-container
