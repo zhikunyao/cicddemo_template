@@ -24,11 +24,23 @@ VERSION = config.get('version') or "no config"
 app = Flask(__name__)
 api = Api(app)
 
+def lane_http_header(request):
+    custom_header_kv = request.headers
+    ret = {}
+    for each_key in ['X-ENV','X-USER-ID', 'X-REQUEST-ID']:
+        value = custom_header_kv.get(each_key)
+        if value:
+            ret[each_key] = value
+    return ret
+
 # Test资源
 class ConfigResource(Resource):
     def get(self):
         values = VERSION
-        return {"version": values}
+        custom_header_dict = lane_http_header(request)
+        ret = {"version": values}
+        ret['route_my_custom_header'] = custom_header_dict
+        return ret
 
     def post(self):
         key = request.json['key']
