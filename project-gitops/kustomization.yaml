@@ -12,4 +12,4 @@ images:
   newTag: main-20240715-7b9ba0d
 - name: cicdmeta-demo2
   newName: harbor-us-vdc.zilliz.cc/cicdmeta/cicdmeta-demo2
-  newTag: main-demo2-20240716-f2741e1
+  newTag: main-demo2-20240717-60fa885
