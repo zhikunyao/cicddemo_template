@@ -28,7 +28,7 @@ api = Api(app)
 def lane_http_header(request):
     custom_header_kv = request.headers
     ret = {}
-    for each_key in ['X-ENV','X-USER-ID']:
+    for each_key in ['X-ENV','X-USER-ID', 'X-REQUEST-ID']:
         value = custom_header_kv.get(each_key)
         if value:
             ret[each_key] = value
