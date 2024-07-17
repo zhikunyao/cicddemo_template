@@ -15,7 +15,7 @@ spec:
         version: feat1
     spec:
       containers:
-      - name: cicdmeta-demo2-container
+      - name: cicdmeta-demo2-container-feat1
         image: cicdmeta-demo2-feat1
         resources:
           requests:
