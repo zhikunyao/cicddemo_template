@@ -27,7 +27,7 @@ api = Api(app)
 def lane_http_header(request):
     custom_header_kv = request.headers
     ret = {}
-    for each_key in ['X-ENV','X-USER-ID', 'X-REQUEST-ID']:
+    for each_key in ['X-ENV','X-USER-ID', 'X-REQUEST-ID', 'X-TEST-ENVOY']:
         value = custom_header_kv.get(each_key)
         if value:
             ret[each_key] = value
@@ -40,7 +40,6 @@ class ConfigResource(Resource):
         custom_header_dict = lane_http_header(request)
         ret = {"version": values}
         ret['route_my_custom_header'] = custom_header_dict
-        ret['my_all_headers_see_lane_inject'] = request.headers
         return ret
 
     def post(self):
