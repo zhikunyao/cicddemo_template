@@ -40,6 +40,7 @@ class ConfigResource(Resource):
         custom_header_dict = lane_http_header(request)
         ret = {"version": values}
         ret['route_my_custom_header'] = custom_header_dict
+        ret['my_all_headers_see_lane_inject'] = request.headers
         return ret
 
     def post(self):
